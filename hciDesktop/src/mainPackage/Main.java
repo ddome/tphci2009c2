@@ -1,12 +1,11 @@
 package mainPackage;
+
 import org.jdesktop.application.*;
-
 import java.awt.event.ActionListener;
-import java.util.Locale;
-
-
+import java.util.*;
 import javax.swing.*;
 import utils.*;
+
 public class Main extends SingleFrameApplication{
 
 	
@@ -19,10 +18,10 @@ public class Main extends SingleFrameApplication{
 		JMenuBar mbar= new JMenuBar();
 		JMenu menuD = new JMenu();
 		menuD.setName("menuConfig"); // for injection
-		JMenuItem menuItemAbout= new JMenuItem();
-		menuItemAbout.setName("menuItemLenguage"); // for injection
+		JMenuItem menuItemLanguaje= new JMenuItem();
+		menuItemLanguaje.setName("menuItemLenguage"); // for injection
 		
-		menuItemAbout.addActionListener(new ActionListener()
+		menuItemLanguaje.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
@@ -38,10 +37,11 @@ public class Main extends SingleFrameApplication{
 			};
 		});
 		
-		menuD.add(menuItemAbout);
+		menuD.add(menuItemLanguaje);
 		mbar.add(menuD);
 		getMainFrame().setJMenuBar(mbar);
-		
+		getMainFrame().add((new JScrollPane()).add(new TabbedPanel()));
+		//getMainFrame().add(new TabbedPanel());
 		show(getMainFrame());
 	}
 	public static void main(String[] args)
