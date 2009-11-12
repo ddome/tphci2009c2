@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
 import utils.*;
-
+import servicesHandler.CategoryListHandler;
 public class Main extends SingleFrameApplication{
 
 	
@@ -46,7 +46,11 @@ public class Main extends SingleFrameApplication{
 	}
 	public static void main(String[] args)
 	{
-		launch(Main.class, args);
+		ArrayList<String> list = new CategoryListHandler().getCategories();
+		for(int i=0;list!=null && i<list.size();i++){
+			System.out.println(list.get(i));
+		}
+		//launch(Main.class, args);
 	}
 
 }
