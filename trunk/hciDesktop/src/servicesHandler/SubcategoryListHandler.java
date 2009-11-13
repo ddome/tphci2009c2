@@ -16,12 +16,12 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-public class CategoryListHandler {
-	private HashMap <String,Integer> categories = new HashMap <String,Integer>();
+public class SubcategoryListHandler {
+	private HashMap <String,Integer> subcategories = new HashMap <String,Integer>();
 	
-	public CategoryListHandler(){
+	public SubcategoryListHandler(int catId){
 		try{
-			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetCategoryList&language_id=1");
+			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetSubcategoryList&language_id=1&category_id="+catId);
 		
 		    URLConnection urlc = url.openConnection();
 		    urlc.setDoOutput(false);
@@ -47,14 +47,14 @@ public class CategoryListHandler {
 		    InputSource is = new InputSource();
 		    is.setCharacterStream(new StringReader(response));
 		    Document dom = db.parse(is);
-		    NodeList nl = dom.getElementsByTagName("category");
+		    NodeList nl = dom.getElementsByTagName("subcategory");
 		    
 		    for(int i=0; i<nl.getLength();i++) {
 		    	Element e = (Element) nl.item(i);
 		    	String id = e.getAttribute("id");
                 NodeList name = e.getElementsByTagName("name");
                 Element line = (Element) name.item(0);
-                categories.put(getCharacterDataFromElement(line),Integer.valueOf(id));
+                subcategories.put(getCharacterDataFromElement(line),Integer.valueOf(id));
 		    }
 		    
 		} catch (Exception e) {
@@ -62,8 +62,8 @@ public class CategoryListHandler {
 	    }
 	}
 	
-	public HashMap <String,Integer> getCategories() {
-		return categories;
+	public HashMap <String,Integer> getSubCategories() {
+		return subcategories;
 	}
 	
 	public static String getCharacterDataFromElement(Element e) {

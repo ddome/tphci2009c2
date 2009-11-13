@@ -6,6 +6,7 @@ import java.util.*;
 import javax.swing.*;
 import utils.*;
 import servicesHandler.CategoryListHandler;
+import servicesHandler.SubcategoryListHandler;
 public class Main extends SingleFrameApplication{
 
 	
@@ -17,23 +18,15 @@ public class Main extends SingleFrameApplication{
 		
 		JMenuBar mbar= new JMenuBar();
 		JMenu menuD = new JMenu();
-		menuD.setName("menuConfig"); // for injection
+		menuD.setName("menuConfig");
 		JMenuItem menuItemLanguaje= new JMenuItem();
-		menuItemLanguaje.setName("menuItemLenguage"); // for injection
+		menuItemLanguaje.setName("menuItemLenguage");
 		
 		menuItemLanguaje.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
-				LenguajeSelector answer = new LenguajeSelector(null);
-				if(answer.getSelected()==null){
-					return;
-				}
-				if(answer.getSelected().equals("Spanish(AR)")){
-					Locale locale = new Locale("es","AR");
-					Locale.setDefault(locale);
-				}
-				
+				LenguajeSelector answer = new LenguajeSelector(null);		
 			};
 		});
 		
@@ -46,11 +39,7 @@ public class Main extends SingleFrameApplication{
 	}
 	public static void main(String[] args)
 	{
-		ArrayList<String> list = new CategoryListHandler().getCategories();
-		for(int i=0;list!=null && i<list.size();i++){
-			System.out.println(list.get(i));
-		}
-		//launch(Main.class, args);
+		launch(Main.class, args);
 	}
 
 }
