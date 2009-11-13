@@ -8,10 +8,6 @@ import org.jdesktop.application.ApplicationContext;
 import org.jdesktop.application.Resource;
 
 public class LenguajeSelector extends JDialog{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Resource

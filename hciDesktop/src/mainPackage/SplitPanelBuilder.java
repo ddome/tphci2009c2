@@ -10,7 +10,7 @@ public class SplitPanelBuilder extends JSplitPane{
 
 	public SplitPanelBuilder(int selectedCathegory){
 		super(JSplitPane.HORIZONTAL_SPLIT);
-		setLeftComponent(new SubCategoryListBuilder());
+		setLeftComponent(new SubCategoryListBuilder(selectedCathegory));
 		setRightComponent(new ListProductBuilder());
 		setPreferredSize(new Dimension(410, 500));
 		

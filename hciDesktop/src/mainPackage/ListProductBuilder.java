@@ -1,5 +1,7 @@
 package mainPackage;
 
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import utils.ProductViewer;
@@ -17,6 +19,7 @@ public class ListProductBuilder extends JPanel{
 	    			new ProductViewer();
 	    		}
 			});
+			producto.setSize(10,500);
 			add(producto);
 		}
 	}
