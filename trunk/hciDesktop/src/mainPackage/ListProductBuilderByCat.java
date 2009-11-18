@@ -1,15 +1,14 @@
 package mainPackage;
 
-import java.awt.Dimension;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import utils.ProductViewer;
-public class ListProductBuilder extends JPanel{
+
+public class ListProductBuilderByCat extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 
-	public ListProductBuilder() {
+	public ListProductBuilderByCat(int selectedCathegory) {
 		super();
 		int i;
 		for(i=0;i<10;i++){
