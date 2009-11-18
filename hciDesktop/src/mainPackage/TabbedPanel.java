@@ -19,6 +19,7 @@ public class TabbedPanel extends JPanel {
 		tabbedPane = new JTabbedPane();
         ImageIcon icon = null;
         
+        tabbedPane.setName("tabbedPanel");
         
         tabbedPane.addMouseListener(new java.awt.event.MouseAdapter() {
         	public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -34,6 +35,7 @@ public class TabbedPanel extends JPanel {
         	if(i==0){
         		tabbedPane.setComponentAt(0, new SplitPanelBuilder(listaCat.get(s)));
         	}
+        	i++;
         }
 
         add(tabbedPane);
