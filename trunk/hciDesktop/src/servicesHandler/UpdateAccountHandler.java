@@ -7,8 +7,10 @@ import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -16,20 +18,17 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-public class RegisterHandler {
+import utils.UserDetails;
 
-	
-	@SuppressWarnings("deprecation")
-	public static int UseRegister(String username,String name,String password,String email,String birthDate) {
+public class UpdateAccountHandler {
+	static public int useGetAccount(String name,String email,String date ,String username,String token) {
 	    try {
 	        // Thanks: http://xml.nig.ac.jp/tutorial/rest/index.html
-	        URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Security.groovy?method=CreateAccount");
+	        URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Security.groovy?method=UpdateAccount&username="+username+"&authentication_token="+token);
 	        String ret = "<account>"+
-	        "<username>"+username+"</username>"+
 	        "<name>"+name+"</name>"+
-	        "<password>"+password+"</password>"+
 	        "<email>"+email+"</email>"+
-	        "<birth_date>"+birthDate+"</birth_date>"+
+	        "<birth_date>"+date+"</birth_date>"+
 	        "</account>";
 	        //make connection, use post mode, and send query
 	        URLConnection urlc = url.openConnection();
@@ -52,9 +51,8 @@ public class RegisterHandler {
 	        String response = sb.toString();
 	
 	        if (response == null) {
-	            return -1;
+	        	return -1;
 	        }
-
 	
 	        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 	        DocumentBuilder db = dbf.newDocumentBuilder();
@@ -63,6 +61,7 @@ public class RegisterHandler {
 	        Document dom = db.parse(is);
 	        NodeList nl = dom.getElementsByTagName("response");
 	        String status = ((Element) nl.item(0)).getAttributes().item(0).getTextContent();
+	        
 	        if(status.equalsIgnoreCase("ok")){
 	        	return 0;
 	        }
@@ -70,7 +69,7 @@ public class RegisterHandler {
 	        	nl = dom.getElementsByTagName("error");
 	    	    String code = ((Element) nl.item(0)).getAttributes().item(0).getTextContent();
 	    	    if(code.toString().equals("201")){
-	    	    	return 1;
+	    	    	return -1;
 	    	    }
 	        }
 	        
@@ -80,20 +79,14 @@ public class RegisterHandler {
 	        //setErrorMessage(request, "Failed REST service call. Exception=" + e);
 	        //response = null;
 	    }
-	    
-	    
 	    return -1;
-	    
 	}
-
 	public static String getCharacterDataFromElement(Element e) {
-		Node child = e.getFirstChild();
-		if (child instanceof CharacterData) {
-		   CharacterData cd = (CharacterData) child;
-		   return cd.getData();
-		}
-		return "?";
+	    Node child = e.getFirstChild();
+	    if (child instanceof CharacterData) {
+	       CharacterData cd = (CharacterData) child;
+	       return cd.getData();
+	    }
+	    return "?";
 	}
-
 }
-

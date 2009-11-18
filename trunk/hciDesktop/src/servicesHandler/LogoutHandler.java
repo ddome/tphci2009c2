@@ -19,7 +19,7 @@ import org.xml.sax.InputSource;
 public class LogoutHandler {
 	public LogoutHandler(String username,String token){
 		try{
-			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Security.groovy?method=LogOut&username="+username+"&token="+token);
+			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Security.groovy?method=LogOut&username="+username+"&authentication_token="+token);
 		
 		    URLConnection urlc = url.openConnection();
 		    urlc.setDoOutput(false);
