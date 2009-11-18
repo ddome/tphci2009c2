@@ -1,5 +1,10 @@
 package mainPackage;
+import java.awt.Color;
+import java.awt.Font;
+
 import servicesHandler.GetAccountHandler;
+import servicesHandler.UpdateAccountHandler;
+import utils.Constants;
 import utils.Session;
 import utils.UserDetails;
 public class UpdateAccount extends javax.swing.JFrame{
@@ -56,7 +61,12 @@ public class UpdateAccount extends javax.swing.JFrame{
 
         jTextField3.setText(resourceMap.getString("dateF.text")); // NOI18N
         jTextField3.setName("dateF"); // NOI18N
-
+        
+        lengthErrorName=resourceMap.getString("lengthErrorName.text");
+        formatErrorName=resourceMap.getString("formatErrorName.text");
+        lengthErrorEmail=resourceMap.getString("lengthErrorEmail.text");
+        formatErrorEmail=resourceMap.getString("formatErrorEmail.text");
+        
         jButton1.setText(resourceMap.getString("okButton.text")); // NOI18N
         jButton1.setName("okButton"); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +144,7 @@ public class UpdateAccount extends javax.swing.JFrame{
         System.out.println(details.email);
         jTextField1.setText(details.name);
         jTextField2.setText(details.email);
+        jTextField3.setText(details.birth_date);
     }// </editor-fold>
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,9 +152,55 @@ public class UpdateAccount extends javax.swing.JFrame{
     }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+    	resetHints();
+    	String name=jTextField1.getText();
+    	String email = jTextField2.getText();
+    	String date = jTextField3.getText();
+    	boolean valid=validateFields(name,email,date);
+    	if(!valid){
+    		System.out.println("Error");
+    	}
+    	UpdateAccountHandler.useGetAccount(name,email,date,Session.getSession().username,Session.getSession().token);
+    	dispose();
+    }
+    
+    private boolean validateFields(String name,String email,String date){
+    	Font font = new Font("Serif", Font.BOLD, 10);
+    	if(name.length()<Constants.nameLengthMin || name.length()>Constants.nameLengthMax){
+    		jLabel1.setText(lengthErrorName);
+    		jLabel1.setFont(font);
+    		jLabel1.setForeground(Color.RED);
+    		return false;
+    	}
+    	if(!name.matches(Constants.nameRegExp)){
+    		jLabel1.setText(formatErrorName);
+    		jLabel1.setFont(font);
+    		jLabel1.setForeground(Color.RED);
+    		return false;
+    	}
+    	
+    	if(email.length()<Constants.emailLengthMin || email.length()>Constants.emailLengthMax){
+    		jLabel1.setText(lengthErrorEmail);
+    		jLabel1.setFont(font);
+    		jLabel1.setForeground(Color.RED);
+    		return false;
+    	}
+    	if(!email.matches(Constants.emailRegExp)){
+    		jLabel1.setText(formatErrorEmail);
+    		jLabel1.setFont(font);
+    		jLabel1.setForeground(Color.RED);
+    		return false;
+    	}
+    	
+    	
+    	return true;
     }
 
+    private void resetHints() {
+    	jLabel1.setText(" ");
+
+    }
+    
     // Variables declaration - do not modify
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -154,5 +211,9 @@ public class UpdateAccount extends javax.swing.JFrame{
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private String lengthErrorName;
+    private String formatErrorName;
+    private String lengthErrorEmail;
+    private String formatErrorEmail;
     // End of variables declaration
 }

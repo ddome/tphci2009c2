@@ -38,6 +38,7 @@ public class LoginHandler {
 		    String response = sb.toString();
 		
 		    if (response == null) {
+		    	datos=null;
 		        return;
 		    }
 		    
