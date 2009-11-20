@@ -2,7 +2,11 @@ package mainPackage;
 
 import org.jdesktop.application.*;
 
+import java.awt.Window;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Locale;
 
 import javax.swing.*;
@@ -48,13 +52,13 @@ public class Main extends SingleFrameApplication{
 		register.setName("registerDialog");
 		logout.setName("logoutAction");
 		
-		menuItemLanguaje.addActionListener(new ActionListener()
+		/*menuItemLanguaje.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
 				LenguajeSelector answer = new LenguajeSelector(null);		
 			};
-		});
+		});*/
 		
 		login.addActionListener(new ActionListener()
 		{
@@ -66,8 +70,10 @@ public class Main extends SingleFrameApplication{
 	            login.setVisible(true);
 	            login.setResizable(false);
 			};
+			
 		});
 		
+
 		register.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(java.awt.event.ActionEvent e)
@@ -136,8 +142,7 @@ public class Main extends SingleFrameApplication{
 	}
 	public static void main(String[] args)
 	{
-		Locale locale = new Locale("en","US");
-		Locale.setDefault(locale);
+		LenguajeSelector answer = new LenguajeSelector(null);
 		launch(Main.class, args);
 	}
 
