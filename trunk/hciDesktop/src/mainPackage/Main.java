@@ -3,6 +3,8 @@ package mainPackage;
 import org.jdesktop.application.*;
 
 import java.awt.event.ActionListener;
+import java.util.Locale;
+
 import javax.swing.*;
 import utils.LenguajeSelector;
 import utils.Login;
@@ -23,6 +25,7 @@ public class Main extends SingleFrameApplication{
 	static JMenuItem logout = new JMenuItem();
 	static String confirmExitTitle;
 	static String confirmExitMsg;
+	static JFrame main;
 	protected void startup()
 	{
 		JFrame myFrame = getMainFrame();
@@ -125,7 +128,7 @@ public class Main extends SingleFrameApplication{
 		
 		mbar.add(menuD);
 		mbar.add(userD);
-		
+		main = getMainFrame();
 		getMainFrame().setJMenuBar(mbar);
 		getMainFrame().add((new JScrollPane()).add(new TabbedPanel()));
 		//getMainFrame().add(new TabbedPanel());
@@ -133,6 +136,8 @@ public class Main extends SingleFrameApplication{
 	}
 	public static void main(String[] args)
 	{
+		Locale locale = new Locale("en","US");
+		Locale.setDefault(locale);
 		launch(Main.class, args);
 	}
 
@@ -151,4 +156,5 @@ public class Main extends SingleFrameApplication{
 		userD.getMenuComponent(3).hide();
 		userD.getMenuComponent(4).hide();
 	}
+	
 }
