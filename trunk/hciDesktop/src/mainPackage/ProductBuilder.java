@@ -7,18 +7,27 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 
+import utils.Login;
 import utils.ProductShort;
 import utils.ProductViewer;
 
 public class ProductBuilder  extends JSplitPane{
-	/**
-	 * 
-	 */
+
+	private String name;
+	private String rank;
+	private String price;
 	private static final long serialVersionUID = 1L;
 
 	public ProductBuilder(ProductShort productBasic){
 		super(JSplitPane.HORIZONTAL_SPLIT);
 		this.setName("splitPanel");
+		
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(ProductBuilder.class);
+        
+		name = resourceMap.getString("name.text");
+		rank = resourceMap.getString("rank.text");
+		price = resourceMap.getString("price.text");
+		
 		Dimension dim = new Dimension(10,150);
 		this.setSize(dim);
 		JButton view = new JButton("View");
@@ -29,7 +38,7 @@ public class ProductBuilder  extends JSplitPane{
 		});
 		setLeftComponent(view);
 		
-		String content = "Name: "+productBasic.name+"\nRank: "+productBasic.rank+"\nPrice: "+productBasic.price;
+		String content = name+": "+productBasic.name+"\n"+rank+": "+productBasic.rank+"\n"+price+": "+productBasic.price;
 		System.out.println(content);
 		JTextArea aux = new JTextArea(content,5,150);
 		aux.setLineWrap(true);
