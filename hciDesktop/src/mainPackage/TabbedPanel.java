@@ -12,13 +12,14 @@ public class TabbedPanel extends JPanel {
 
 	private JTabbedPane tabbedPane;
 
-	private HashMap <String,Integer> listaCat = new CategoryListHandler().getCategories();
+	static public  HashMap <String,Integer> listaCat = new CategoryListHandler().getCategories();
 	
+	static public JTabbedPane aux;
 	public TabbedPanel() {
 		int i=0;
 		tabbedPane = new JTabbedPane();
         ImageIcon icon = null;
-        
+        aux = tabbedPane;
         tabbedPane.setName("tabbedPanel");
         
         tabbedPane.addMouseListener(new java.awt.event.MouseAdapter() {

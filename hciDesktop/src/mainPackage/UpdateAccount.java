@@ -140,11 +140,11 @@ public class UpdateAccount extends javax.swing.JFrame{
         if(details==null){
         	System.out.println("Error");
         }
-        System.out.println(details.name);
-        System.out.println(details.email);
-        jTextField1.setText(details.name);
-        jTextField2.setText(details.email);
-        jTextField3.setText(details.birth_date);
+        else{
+	        jTextField1.setText(details.name);
+	        jTextField2.setText(details.email);
+	        jTextField3.setText(details.birth_date);
+        }
     }// </editor-fold>
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +158,7 @@ public class UpdateAccount extends javax.swing.JFrame{
     	String date = jTextField3.getText();
     	boolean valid=validateFields(name,email,date);
     	if(!valid){
-    		System.out.println("Error");
+    		return;
     	}
     	UpdateAccountHandler.useGetAccount(name,email,date,Session.getSession().username,Session.getSession().token);
     	dispose();
