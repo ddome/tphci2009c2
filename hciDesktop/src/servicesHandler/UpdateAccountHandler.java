@@ -7,10 +7,8 @@ import java.io.StringReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,9 +16,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import utils.UserDetails;
-
 public class UpdateAccountHandler {
+	@SuppressWarnings("deprecation")
 	static public int useGetAccount(String name,String email,String date ,String username,String token) {
 	    try {
 	        // Thanks: http://xml.nig.ac.jp/tutorial/rest/index.html

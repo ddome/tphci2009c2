@@ -1,13 +1,13 @@
 package mainPackage;
 
 import java.awt.Dimension;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
-
-import utils.Login;
 import utils.ProductShort;
 import utils.ProductViewer;
 
@@ -18,6 +18,7 @@ public class ProductBuilder  extends JSplitPane{
 	private String price;
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("deprecation")
 	public ProductBuilder(ProductShort productBasic){
 		super(JSplitPane.HORIZONTAL_SPLIT);
 		this.setName("splitPanel");
@@ -31,6 +32,9 @@ public class ProductBuilder  extends JSplitPane{
 		Dimension dim = new Dimension(10,150);
 		this.setSize(dim);
 		JButton view = new JButton("View");
+
+		view = new JButton();
+
 		view.addMouseListener(new java.awt.event.MouseAdapter() {
         	public void mouseClicked(java.awt.event.MouseEvent evt) {
     			new ProductViewer();

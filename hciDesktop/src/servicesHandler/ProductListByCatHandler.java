@@ -6,8 +6,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.CharacterData;
@@ -16,14 +14,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-
-import utils.UserDetails;
 import utils.ProductShort;
+
 public class ProductListByCatHandler {
 	public ArrayList<ProductShort> list = new ArrayList<ProductShort>();
-	public ProductListByCatHandler(int cathegory) {
+	public ProductListByCatHandler(int cathegory,int langId) {
 		try{
-			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetProductListByCategory&category_id="+cathegory+"&language_id=1");
+			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetProductListByCategory&category_id="+cathegory+"&language_id="+langId);
 		
 		    URLConnection urlc = url.openConnection();
 		    urlc.setDoOutput(false);

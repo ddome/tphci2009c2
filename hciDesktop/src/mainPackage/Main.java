@@ -1,15 +1,12 @@
 package mainPackage;
 
-import org.jdesktop.application.*;
-
-import java.awt.Window;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.Locale;
 
+import org.jdesktop.application.*;
 import javax.swing.*;
+
+import utils.LanguageSession;
 import utils.LenguajeSelector;
 import utils.Login;
 import utils.Register;
@@ -19,7 +16,7 @@ import servicesHandler.LogoutHandler;
 public class Main extends SingleFrameApplication{
 
 	static JMenuBar mbar= new JMenuBar();
-	static JMenu menuD = new JMenu();
+	static JMenu searchD = new JMenu();
 	static JMenu userD = new JMenu();
 	static JMenuItem menuItemLanguaje= new JMenuItem();
 	static JMenuItem login = new JMenuItem();
@@ -27,9 +24,11 @@ public class Main extends SingleFrameApplication{
 	static JMenuItem password = new JMenuItem();
 	static JMenuItem account = new JMenuItem();
 	static JMenuItem logout = new JMenuItem();
+	static JMenuItem search = new JMenuItem();
 	static String confirmExitTitle;
 	static String confirmExitMsg;
 	static JFrame main;
+	@SuppressWarnings("deprecation")
 	protected void startup()
 	{
 		JFrame myFrame = getMainFrame();
@@ -39,26 +38,15 @@ public class Main extends SingleFrameApplication{
 		confirmExitMsg=resourceMap.getString("confirmExitMsg.text");
 		new Session();
 		
-		menuD.setName("menuConfig");
+		searchD.setName("searchMenu");
 		userD.setName("userMenu");
-		
-		
-		menuItemLanguaje.setName("menuItemLenguage");
-		
 		
 		login.setName("loginDialog");
 		password.setName("passwordDialog");
 		account.setName("accountDialog");
 		register.setName("registerDialog");
 		logout.setName("logoutAction");
-		
-		/*menuItemLanguaje.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(java.awt.event.ActionEvent e)
-			{
-				LenguajeSelector answer = new LenguajeSelector(null);		
-			};
-		});*/
+		search.setName("searchDialog");
 		
 		login.addActionListener(new ActionListener()
 		{
@@ -66,6 +54,19 @@ public class Main extends SingleFrameApplication{
 			{
 				JFrame mainFrame = getMainFrame();
 				Login login = new Login();
+				login.setLocationRelativeTo(mainFrame);
+	            login.setVisible(true);
+	            login.setResizable(false);
+			};
+			
+		});
+		
+		search.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(java.awt.event.ActionEvent e)
+			{
+				JFrame mainFrame = getMainFrame();
+				Search login = new Search();
 				login.setLocationRelativeTo(mainFrame);
 	            login.setVisible(true);
 	            login.setResizable(false);
@@ -126,26 +127,32 @@ public class Main extends SingleFrameApplication{
 		
 		userD.add(register);
 		userD.add(login);
-		menuD.add(menuItemLanguaje);
+		searchD.add(search);
 		
 		userD.add(password).hide();
 		userD.add(account).hide();
 		userD.add(logout).hide();
 		
-		mbar.add(menuD);
+		mbar.add(searchD);
 		mbar.add(userD);
 		main = getMainFrame();
 		getMainFrame().setJMenuBar(mbar);
 		getMainFrame().add((new JScrollPane()).add(new TabbedPanel()));
-		//getMainFrame().add(new TabbedPanel());
 		show(getMainFrame());
 	}
 	public static void main(String[] args)
 	{
-		LenguajeSelector answer = new LenguajeSelector(null);
+		new LenguajeSelector(null);
+		if(LanguageSession.getActualLangugeName().compareToIgnoreCase("English")==0){
+			Locale.setDefault(new Locale("en","US"));
+		}
+		else{
+			Locale.setDefault(new Locale("es","AR"));
+		}
 		launch(Main.class, args);
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void toggleLoginOn(){
 		userD.getMenuComponent(1).hide();
 		userD.getMenuComponent(0).hide();
@@ -154,6 +161,7 @@ public class Main extends SingleFrameApplication{
 		userD.getMenuComponent(4).show();
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static void toggleLoginOff(){
 		userD.getMenuComponent(1).show();
 		userD.getMenuComponent(0).show();
