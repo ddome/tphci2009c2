@@ -19,9 +19,9 @@ import org.xml.sax.InputSource;
 public class SubcategoryListHandler {
 	private HashMap <String,Integer> subcategories = new HashMap <String,Integer>();
 	
-	public SubcategoryListHandler(int catId){
+	public SubcategoryListHandler(int catId,int langId){
 		try{
-			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetSubcategoryList&language_id=1&category_id="+catId);
+			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetSubcategoryList&language_id="+langId+"&category_id="+catId);
 		
 		    URLConnection urlc = url.openConnection();
 		    urlc.setDoOutput(false);

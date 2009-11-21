@@ -2,12 +2,8 @@ package mainPackage;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
-
-import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import utils.ProductShort;
-import utils.ProductViewer;
 
 public class ListProductBuilder extends JPanel{
 

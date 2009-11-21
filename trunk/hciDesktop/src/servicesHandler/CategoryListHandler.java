@@ -19,9 +19,9 @@ import org.xml.sax.InputSource;
 public class CategoryListHandler {
 	private HashMap <String,Integer> categories = new HashMap <String,Integer>();
 	
-	public CategoryListHandler(){
+	public CategoryListHandler(int langId){
 		try{
-			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetCategoryList&language_id=1");
+			URL url = new URL("http://eiffel.itba.edu.ar/hci/service/Catalog.groovy?method=GetCategoryList&language_id="+langId);
 		
 		    URLConnection urlc = url.openConnection();
 		    urlc.setDoOutput(false);

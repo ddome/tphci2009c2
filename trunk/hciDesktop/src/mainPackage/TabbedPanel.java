@@ -5,6 +5,7 @@ import java.util.*;
 import javax.swing.*;
 
 import servicesHandler.CategoryListHandler;
+import utils.LanguageSession;
 
 
 public class TabbedPanel extends JPanel {
@@ -12,7 +13,7 @@ public class TabbedPanel extends JPanel {
 
 	private JTabbedPane tabbedPane;
 
-	static public  HashMap <String,Integer> listaCat = new CategoryListHandler().getCategories();
+	static public  HashMap <String,Integer> listaCat = new CategoryListHandler(LanguageSession.getActualLangugeId()).getCategories();
 	
 	static public JTabbedPane aux;
 	public TabbedPanel() {

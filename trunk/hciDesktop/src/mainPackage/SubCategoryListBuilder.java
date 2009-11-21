@@ -1,13 +1,12 @@
 package mainPackage;
 
 import java.util.HashMap;
-
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 
 import servicesHandler.ProductListBySubCatHandler;
 import servicesHandler.SubcategoryListHandler;
+import utils.LanguageSession;
 
 public class SubCategoryListBuilder extends JList{
 
@@ -17,7 +16,7 @@ public class SubCategoryListBuilder extends JList{
 	
 	public SubCategoryListBuilder(int selectedCathegory) {
 		super();
-		SubcategoryListHandler subcategories = new SubcategoryListHandler(selectedCathegory);
+		SubcategoryListHandler subcategories = new SubcategoryListHandler(selectedCathegory,LanguageSession.getActualLangugeId());
 		subCategories = subcategories.getSubCategories();
 		setListData(subCategories.keySet().toArray());
 		this.setSelectionMode(VERTICAL);
@@ -30,7 +29,7 @@ public class SubCategoryListBuilder extends JList{
         		int cat = TabbedPanel.listaCat.get(title);
         		System.out.println(subCat);
     			//((JSplitPane)((JScrollPane)getParent()).getParent()).setRightComponent(new ListProductBuilder((new ProductListBySubCatHandler(subCat)).list));
-    			SplitPanelBuilder.splitPanelAux.setRightComponent(new ListProductBuilder((new ProductListBySubCatHandler(cat,subCat)).list));
+    			SplitPanelBuilder.splitPanelAux.setRightComponent(new JScrollPane(new ListProductBuilder((new ProductListBySubCatHandler(cat,subCat,LanguageSession.getActualLangugeId())).list)));
     		}
 		});
 	}
