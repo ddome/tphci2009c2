@@ -52,6 +52,6 @@ public class ProductBuilder  extends JSplitPane{
 		setRightComponent(new JScrollPane(aux));
 		
 		setPreferredSize(dim);
-		
+		show();
 	}
 }
