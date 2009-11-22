@@ -1,4 +1,4 @@
-package utils;
+package mainPackage;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import mainPackage.Main;
 
 import servicesHandler.RegisterHandler;
+import utils.Constants;
 
 public class Register extends javax.swing.JFrame {
 

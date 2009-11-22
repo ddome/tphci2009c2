@@ -5,9 +5,6 @@ import java.util.Locale;
 import org.jdesktop.application.*;
 import javax.swing.*;
 import utils.LanguageSession;
-import utils.LenguajeSelector;
-import utils.Login;
-import utils.Register;
 import utils.Session;
 import servicesHandler.LogoutHandler;
 
