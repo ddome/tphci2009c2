@@ -48,7 +48,7 @@ public class LanguageHandler {
 		    is.setCharacterStream(new StringReader(response));
 		    Document dom = db.parse(is);
 		    NodeList nl = dom.getElementsByTagName("language");
-		    System.out.println(response);
+
 		    for(int i=0; i<nl.getLength();i++) {
 		    	Element e = (Element) nl.item(i);
 		    	String id = e.getAttribute("id");

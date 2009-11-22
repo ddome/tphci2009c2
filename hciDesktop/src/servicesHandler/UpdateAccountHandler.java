@@ -73,8 +73,6 @@ public class UpdateAccountHandler {
 	
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	        //setErrorMessage(request, "Failed REST service call. Exception=" + e);
-	        //response = null;
 	    }
 	    return -1;
 	}

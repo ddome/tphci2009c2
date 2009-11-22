@@ -2,10 +2,8 @@ package mainPackage;
 
 import java.awt.event.ActionListener;
 import java.util.Locale;
-
 import org.jdesktop.application.*;
 import javax.swing.*;
-
 import utils.LanguageSession;
 import utils.LenguajeSelector;
 import utils.Login;
@@ -28,16 +26,17 @@ public class Main extends SingleFrameApplication{
 	static String confirmExitTitle;
 	static String confirmExitMsg;
 	static JFrame main;
+	public static JFrame myFrame; 
 	@SuppressWarnings("deprecation")
 	protected void startup()
 	{
-		JFrame myFrame = getMainFrame();
+		myFrame = getMainFrame();
 		myFrame.setName("mainFrame");
 		org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(Password.class);
 		confirmExitTitle=resourceMap.getString("confirmExitTitle.text");
 		confirmExitMsg=resourceMap.getString("confirmExitMsg.text");
 		new Session();
-		
+
 		searchD.setName("searchMenu");
 		userD.setName("userMenu");
 		
@@ -53,6 +52,7 @@ public class Main extends SingleFrameApplication{
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
 				JFrame mainFrame = getMainFrame();
+				mainFrame.setEnabled(false);
 				Login login = new Login();
 				login.setLocationRelativeTo(mainFrame);
 	            login.setVisible(true);
@@ -80,6 +80,7 @@ public class Main extends SingleFrameApplication{
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
 				JFrame mainFrame = getMainFrame();
+				mainFrame.setEnabled(false);
 				Register register = new Register();
 				register.setLocationRelativeTo(mainFrame);
 				register.setVisible(true);
@@ -92,6 +93,7 @@ public class Main extends SingleFrameApplication{
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
 				JFrame mainFrame = getMainFrame();
+				mainFrame.setEnabled(false);
 				Password password = new Password();
 				password.setLocationRelativeTo(mainFrame);
 				password.setVisible(true);
@@ -104,6 +106,7 @@ public class Main extends SingleFrameApplication{
 			public void actionPerformed(java.awt.event.ActionEvent e)
 			{
 				JFrame mainFrame = getMainFrame();
+				mainFrame.setEnabled(false);
 				UpdateAccount account = new UpdateAccount();
 				account.setLocationRelativeTo(mainFrame);
 				account.setVisible(true);

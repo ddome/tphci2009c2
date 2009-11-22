@@ -47,7 +47,7 @@ public class GetAccountHandler {
 		    InputSource is = new InputSource();
 		    is.setCharacterStream(new StringReader(response));
 		    Document dom = db.parse(is);
-		    //validar llegada
+
 		    NodeList nl = dom.getElementsByTagName("account");
 		    
 	    	Element e = (Element) nl.item(0);

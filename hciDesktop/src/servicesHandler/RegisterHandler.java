@@ -77,13 +77,8 @@ public class RegisterHandler {
 	
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	        //setErrorMessage(request, "Failed REST service call. Exception=" + e);
-	        //response = null;
 	    }
-	    
-	    
-	    return -1;
-	    
+	    return -1;	    
 	}
 
 	public static String getCharacterDataFromElement(Element e) {

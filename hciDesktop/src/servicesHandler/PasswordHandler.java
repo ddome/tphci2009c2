@@ -45,7 +45,7 @@ public class PasswordHandler {
 		    		    
 		    NodeList nl = dom.getElementsByTagName("response");
 		    String status = ((Element) nl.item(0)).getAttributes().item(0).getTextContent();
-		    System.out.println("Status password:"+status);
+
 		    if(status.toString().equals("fail")){
 		    	return -1;
 		    }
