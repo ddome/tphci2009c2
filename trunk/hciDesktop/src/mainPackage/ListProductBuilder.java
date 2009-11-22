@@ -9,6 +9,7 @@ public class ListProductBuilder extends JPanel{
 
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("deprecation")
 	public ListProductBuilder(ArrayList<ProductShort> list) {
 		super();
 		int i;

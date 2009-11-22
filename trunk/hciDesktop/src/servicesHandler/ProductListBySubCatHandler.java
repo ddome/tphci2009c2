@@ -52,6 +52,7 @@ public class ProductListBySubCatHandler {
 
 	    	for(int i=0;i<nl.getLength();i++){
 	    		Element nodes = (Element) nl.item(i);
+	    		String id = nodes.getAttribute("id").toString();
 	    		NodeList name = nodes.getElementsByTagName("name");
 	    		NodeList rank2 = nodes.getElementsByTagName("sales_rank");
 	    		NodeList price = nodes.getElementsByTagName("price");
@@ -60,7 +61,7 @@ public class ProductListBySubCatHandler {
 	    		String rank2S = getCharacterDataFromElement((Element)rank2.item(0));
 	    		String priceS = getCharacterDataFromElement((Element)price.item(0));
 	    		String url2S = getCharacterDataFromElement((Element)url2.item(0));
-	    		list.add(new ProductShort(nameS,rank2S,priceS,url2S));
+	    		list.add(new ProductShort(id,nameS,rank2S,priceS,url2S));
 	    	}
 	    	
             
