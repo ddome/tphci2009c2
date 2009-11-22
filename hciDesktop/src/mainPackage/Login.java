@@ -1,10 +1,11 @@
-package utils;
+package mainPackage;
 
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 import mainPackage.Main;
 import servicesHandler.LoginHandler;
+import utils.Constants;
 import utils.Session;
 
 public class Login extends javax.swing.JFrame {

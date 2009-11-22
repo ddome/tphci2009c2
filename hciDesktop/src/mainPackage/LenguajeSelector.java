@@ -1,14 +1,12 @@
-package utils;
+package mainPackage;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
-
-import mainPackage.Main;
-
 import org.jdesktop.application.Application;
 import org.jdesktop.application.ApplicationContext;
 import org.jdesktop.application.Resource;
 import servicesHandler.LanguageHandler;
+import utils.LanguageSession;
 
 public class LenguajeSelector extends JDialog{
 	

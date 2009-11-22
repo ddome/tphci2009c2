@@ -2,8 +2,8 @@ package utils;
 
 public class Language {
 	String id;
-	String code;
-	String name;
+	public String code;
+	public String name;
 	
 	public Language(String id,String code,String name){
 		this.id=id;
