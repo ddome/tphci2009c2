@@ -9,7 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import utils.ProductShort;
-import utils.ProductViewer;
+import utils.productDetail;
 
 public class ProductBuilder  extends JSplitPane{
 
@@ -21,7 +21,8 @@ public class ProductBuilder  extends JSplitPane{
 	@SuppressWarnings("deprecation")
 	public ProductBuilder(ProductShort productBasic){
 		super(JSplitPane.HORIZONTAL_SPLIT);
-		this.setName("splitPanel");
+		
+		this.setName(productBasic.id);
 		
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(ProductBuilder.class);
         
@@ -37,7 +38,8 @@ public class ProductBuilder  extends JSplitPane{
 
 		view.addMouseListener(new java.awt.event.MouseAdapter() {
         	public void mouseClicked(java.awt.event.MouseEvent evt) {
-    			new ProductViewer();
+        		productDetail aux = new productDetail(getName());
+        		aux.setVisible(true);
     		}
 		});
 		setLeftComponent(view);
