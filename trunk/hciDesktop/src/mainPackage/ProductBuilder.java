@@ -1,9 +1,6 @@
 package mainPackage;
 
 import java.awt.Dimension;
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -38,8 +35,7 @@ public class ProductBuilder  extends JSplitPane{
 
 		view.addMouseListener(new java.awt.event.MouseAdapter() {
         	public void mouseClicked(java.awt.event.MouseEvent evt) {
-        		productDetail aux = new productDetail(getName());
-        		aux.setVisible(true);
+        		new productDetail(getName());
     		}
 		});
 		setLeftComponent(view);
