@@ -39,7 +39,7 @@ public class TabbedPanel extends JPanel {
         	}
         	i++;
         }
-
+        tabbedPane.setSelectedIndex(0);
         add(tabbedPane);
     }
 }

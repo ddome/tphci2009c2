@@ -23,6 +23,7 @@ public class Search extends javax.swing.JFrame {
         setName("Form"); // NOI18N
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(Search.class);
+        this.setTitle(resourceMap.getString("title.text"));
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
 
@@ -34,6 +35,7 @@ public class Search extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+                Main.myFrame.setEnabled(true);
             }
         });
 
@@ -42,6 +44,7 @@ public class Search extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+                Main.myFrame.setEnabled(true);
             }
         });
 

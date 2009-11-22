@@ -49,14 +49,8 @@ public class BookDetailHandler {
 		    InputSource is = new InputSource();
 		    is.setCharacterStream(new StringReader(response));
 		    Document dom = db.parse(is);
-		    System.out.println(response);
 		    NodeList nl = dom.getElementsByTagName("product");
 		    
-		    /*for(int i=0;i<nl.getLength();i++){
-		    	System.out.println(nl.item(i).getNodeName());
-		    	System.out.println(nl.item(i).getNodeValue());
-		    }*/
-		    /*ES PARA LIBRO*/
 	    	Element e = (Element) nl.item(0);
             NodeList name = e.getElementsByTagName("name");
             Element line = (Element) name.item(0);
@@ -94,13 +88,6 @@ public class BookDetailHandler {
             name = e.getElementsByTagName("language");
             line = (Element) name.item(0);
             product.language=getCharacterDataFromElement(line);
-            
-            /*e = (Element) nl.item(0);
-            name = e.getElementsByTagName("ISBNs");
-            line = (Element) name.item(0);
-            product.ISBN=getCharacterDataFromElement(line);*/
-            
-          
           
 		} catch (Exception e) {
 	    	throw e;

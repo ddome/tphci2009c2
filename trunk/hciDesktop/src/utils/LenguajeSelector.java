@@ -2,6 +2,9 @@ package utils;
 
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+
+import mainPackage.Main;
+
 import org.jdesktop.application.Application;
 import org.jdesktop.application.ApplicationContext;
 import org.jdesktop.application.Resource;
@@ -27,6 +30,7 @@ public class LenguajeSelector extends JDialog{
 			lenguageSelected = selected;
 		}
 		LanguageHandler langSelector = new LanguageHandler();
+		
 		int size = langSelector.languages.size();
 		Object[] options = new Object[size];
 		for(int i=0;i<size;i++){
@@ -35,6 +39,9 @@ public class LenguajeSelector extends JDialog{
 			options[i]=languages;
 		}
 		String ret = (String) JOptionPane.showInputDialog(null,lsMessage,lsTitle,optionType,null,options,lenguageSelected);
+		if(ret==null){
+			System.exit(0);
+		}
 		int i=0;
 		for(i=0;i<size;i++){
 			if(options[i].equals(ret)){

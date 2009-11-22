@@ -54,7 +54,6 @@ public class SearchHandler {
 	    	for(int i=0;i<nl.getLength();i++){
 	    		Element nodes = (Element) nl.item(i);
 	    		String id = nodes.getAttribute("id").toString();
-	    		System.out.println(nodes.toString());
 	    		NodeList name = nodes.getElementsByTagName("name");
 	    		NodeList rank2 = nodes.getElementsByTagName("sales_rank");
 	    		NodeList price = nodes.getElementsByTagName("price");
