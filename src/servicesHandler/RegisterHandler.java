@@ -55,7 +55,6 @@ public class RegisterHandler {
 	            return -1;
 	        }
 
-	
 	        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 	        DocumentBuilder db = dbf.newDocumentBuilder();
 	        InputSource is = new InputSource();

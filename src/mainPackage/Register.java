@@ -18,7 +18,8 @@ public class Register extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void initComponents() {
+    @SuppressWarnings("deprecation")
+	private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -191,7 +192,7 @@ public class Register extends javax.swing.JFrame {
                     .addComponent(jButton2))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
-
+        jTextField4.enable(false);
         pack();
     }// </editor-fold>
 
@@ -211,7 +212,7 @@ public class Register extends javax.swing.JFrame {
     		return;
     	}
     	
-    	int ret = RegisterHandler.UseRegister(username,name,password,mail,date);
+    	int ret = RegisterHandler.UseRegister(username,name,password,mail,"2009-02-03");
     	if(ret==1){
     		JOptionPane.showMessageDialog(null,userExistTitle,userExistMsg,JOptionPane.INFORMATION_MESSAGE);
     		return;

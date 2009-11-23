@@ -16,4 +16,6 @@ public interface Constants {
 	int emailLengthMin=1;
 	int emailLengthMax=128;
 	String emailRegExp="^([0-9a-zA-Z])+@([0-9a-zA-Z])+.([0-9a-zA-Z])+[.([0-9a-zA-Z])+]*$";
+	
+	String dateRegExp="^([0-9]){2}/([0-9]){2}/([0-9]){4}$";
 }
