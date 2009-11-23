@@ -131,6 +131,8 @@ public class Main extends SingleFrameApplication{
 			};
 		});
 		
+		
+		
 		userD.add(register);
 		userD.add(login);
 		searchD.add(search);
@@ -142,12 +144,17 @@ public class Main extends SingleFrameApplication{
 		mbar.add(searchD);
 		mbar.add(userD);
 		main = getMainFrame();
+		
 		getMainFrame().setJMenuBar(mbar);
 		TabbedPanel pane = new TabbedPanel();
 		
 		getMainFrame().add((new JScrollPane(pane)).add(pane));
+		
 		show(getMainFrame());
 		pane.tabbedPane.setSelectedIndex(0);
+		System.out.println(main.getSize());
+		main.setSize(650,550);
+		main.setResizable(false);
 	}
 	public static void main(String[] args)
 	{

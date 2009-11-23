@@ -2,6 +2,8 @@ package mainPackage;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JOptionPane;
 
@@ -38,7 +40,7 @@ public class Register extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(Register.class);
         setTitle(resourceMap.getString("Form.title")); // NOI18N
         setName("Form"); // NOI18N
@@ -193,6 +195,11 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jTextField4.enable(false);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+            	Main.main.setEnabled(true);
+            }
+        });
         pack();
     }// </editor-fold>
 

@@ -23,7 +23,7 @@ public class Search extends javax.swing.JFrame {
         setName("Form"); // NOI18N
 
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(Search.class);
-        this.setTitle(resourceMap.getString("title.text"));
+        this.setTitle(resourceMap.getString("Form.title"));
         jLabel1.setText(resourceMap.getString("jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
 
