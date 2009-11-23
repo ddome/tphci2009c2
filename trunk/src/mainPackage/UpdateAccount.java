@@ -17,7 +17,8 @@ public class UpdateAccount extends javax.swing.JFrame{
         initComponents();
     }
 
-    private void initComponents() {
+    @SuppressWarnings("deprecation")
+	private void initComponents() {
     	jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -143,6 +144,7 @@ public class UpdateAccount extends javax.swing.JFrame{
 	        jTextField2.setText(details.email);
 	        jTextField3.setText(details.birth_date);
         }
+        jTextField3.enable(false);
     }// </editor-fold>
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +191,6 @@ public class UpdateAccount extends javax.swing.JFrame{
     		jLabel1.setForeground(Color.RED);
     		return false;
     	}
-    	
     	
     	return true;
     }
