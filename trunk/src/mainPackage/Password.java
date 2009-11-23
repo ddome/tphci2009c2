@@ -2,6 +2,9 @@ package mainPackage;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JOptionPane;
 import utils.Constants;
 import utils.Session;
@@ -27,7 +30,7 @@ public class Password extends javax.swing.JFrame{
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance().getContext().getResourceMap(Password.class);
         setTitle(resourceMap.getString("Form.title")); // NOI18N
         setName("Form"); // NOI18N
@@ -132,6 +135,11 @@ public class Password extends javax.swing.JFrame{
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+            	Main.main.setEnabled(true);
+            }
+        });
         pack();
     }// </editor-fold>
 

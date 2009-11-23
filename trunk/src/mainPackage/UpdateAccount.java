@@ -1,6 +1,8 @@
 package mainPackage;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JOptionPane;
 
@@ -133,6 +135,12 @@ public class UpdateAccount extends javax.swing.JFrame{
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+            	Main.main.setEnabled(true);
+            }
+        });
+        
         pack();
         UserDetails details = GetAccountHandler.useGetAccount(Session.getSession().username,Session.getSession().token );
         if(details==null){
