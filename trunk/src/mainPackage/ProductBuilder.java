@@ -31,6 +31,8 @@ public class ProductBuilder  extends JSplitPane{
 		this.setSize(dim);
 		JButton view = new JButton("View");
 
+
+		
 		view = new JButton();
 
 		view.addMouseListener(new java.awt.event.MouseAdapter() {

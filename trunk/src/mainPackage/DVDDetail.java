@@ -1,5 +1,11 @@
 package mainPackage;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+
 import utils.ProductFullDVD;
 
 public class DVDDetail extends javax.swing.JFrame{
@@ -27,7 +33,7 @@ public class DVDDetail extends javax.swing.JFrame{
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -269,7 +275,16 @@ public class DVDDetail extends javax.swing.JFrame{
     }
     
     private void setValues(ProductFullDVD dvd) {
-    	
+    	Icon preview=null;
+        try {
+            URL url = new URL(dvd.url);
+            preview = new ImageIcon( (new ImageIcon( url )).getImage() );
+
+        } catch (MalformedURLException ex) {
+           //JOptionPane.showMessageDialog(this, "Error al tratar de leer la imagen");
+        }
+        jPanel1.setIcon(preview);
+        jPanel1.setSize(50,50);
     	jLabel14.setText(dvd.product);
         jLabel15.setText(dvd.popularidad);
         jLabel16.setText(dvd.precio);
@@ -315,7 +330,7 @@ public class DVDDetail extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration
 }

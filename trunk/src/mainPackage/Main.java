@@ -27,7 +27,7 @@ public class Main extends SingleFrameApplication{
 	public static JFrame myFrame;
 	private static String fatalErrorTitle;
 	private static String falalErrorMsg;
-	
+	private static TabbedPanel pane;
 	@SuppressWarnings("deprecation")
 	protected void startup()
 	{
@@ -56,10 +56,12 @@ public class Main extends SingleFrameApplication{
 			{
 				JFrame mainFrame = getMainFrame();
 				mainFrame.setEnabled(false);
+				
 				Login login = new Login();
 				login.setLocationRelativeTo(mainFrame);
 	            login.setVisible(true);
 	            login.setResizable(false);
+	            
 			};
 			
 		});
@@ -146,7 +148,7 @@ public class Main extends SingleFrameApplication{
 		main = getMainFrame();
 		
 		getMainFrame().setJMenuBar(mbar);
-		TabbedPanel pane = new TabbedPanel();
+		pane = new TabbedPanel();
 		
 		getMainFrame().add((new JScrollPane(pane)).add(pane));
 		
