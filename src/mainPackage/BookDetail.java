@@ -1,5 +1,11 @@
 package mainPackage;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+
 import utils.ProductFullBook;
 
 public class BookDetail extends javax.swing.JFrame{
@@ -12,7 +18,7 @@ public class BookDetail extends javax.swing.JFrame{
 
     private void initComponents(ProductFullBook book) {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -196,6 +202,16 @@ public class BookDetail extends javax.swing.JFrame{
     }
 
     private void setValues(ProductFullBook book){
+		Icon preview=null;
+        try {
+            URL url = new URL(book.url);
+            preview = new ImageIcon( (new ImageIcon( url )).getImage() );
+
+        } catch (MalformedURLException ex) {
+           //JOptionPane.showMessageDialog(this, "Error al tratar de leer la imagen");
+        }
+        jPanel1.setIcon(preview);
+        jPanel1.setSize(50,50);
     	jLabel9.setText(book.name);
     	jLabel10.setText(book.rank);
     	jLabel11.setText(book.price);
@@ -228,6 +244,6 @@ public class BookDetail extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jPanel1;
     private javax.swing.JSeparator jSeparator1;
 }
