@@ -26,6 +26,7 @@ public class SplitPanelBuilder extends JSplitPane{
 		setRightComponent(rightScroll);
 		setPreferredSize(new Dimension(600,450));
 		splitPanelAux=this;
+		this.setDividerSize(25);
 	}
 
 }

@@ -154,7 +154,6 @@ public class Main extends SingleFrameApplication{
 		
 		show(getMainFrame());
 		pane.tabbedPane.setSelectedIndex(0);
-		System.out.println(main.getSize());
 		main.setSize(650,550);
 		main.setResizable(false);
 	}
